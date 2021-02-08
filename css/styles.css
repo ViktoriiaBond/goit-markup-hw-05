@@ -76,7 +76,6 @@ body {
 
 .header {
   padding: 24px 0px;
-  overflow: hidden;
   border-bottom: 1px solid #ececec;
   
   background-color: var(--header-background-color);
@@ -140,7 +139,7 @@ body {
   position: relative;
   padding-bottom: 32px;
   
-  
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav,
@@ -161,26 +160,23 @@ body {
 .site-nav .link:active {
   color: var(--accent-color);
   
-  
 }
-.site-nav-links{
-  
-}
-.site-nav .line{
-  
+.site-nav .link::after{
+  display: inline-block;
+  content: "";
   position: absolute;
-  display: block;
   height: 4px;
   width: 100%;
-  background-color: var(--accent-color);
-  top: 100%;
+  background-color: transparent;
+  bottom: 0%;
   left: 0%;
-  transform: translateY(0%);
-
+  border-radius: 2px;
+  
   
 }
-.site-nav .link:hover .line{
-  transform: translateY(-100%);
+.site-nav .link:hover::after{
+  background-color: var(--accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-header {
@@ -215,6 +211,7 @@ body {
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav .auth-nav-links:not(:first-child) {
@@ -466,6 +463,7 @@ body {
 .icons {
   width: 20px;
   height: 20px;
+  
 }
 .social-links {
   display: flex;
@@ -482,6 +480,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .for-team {
   background-color: var(--hero-color);
@@ -495,10 +494,13 @@ body {
 }
 .icon-link-list {
   fill: #afb1b8;
+  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .social-link-list:hover .icon-link-list,
 .social-link-list:focus .icon-link-list {
   fill: var(--hero-color);
+  
 }
 /*------------конец блок команда------------------*/
 /*-------------блок клиенты------------------*/
@@ -530,12 +532,16 @@ body {
 
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  
+  transition: border 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-icon-yago {
   width: 44px;
   height: 49px;
   fill: #afb1b8;
+  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .client-icon-tag-here {
   width: 40px;
   height: 52px;
@@ -608,7 +614,12 @@ body {
 .galery-nav .galery-button:focus {
   background-color: var(--accent-color);
   color: var(--hero-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
+  0px 1px 2px rgba(0, 0, 0, 0.08), 
+  0px 2px 2px rgba(0, 0, 0, 0.12);
+
 }
+
 .galery-button {
   padding: 6px 22px;
   border-radius: 4px;
@@ -620,6 +631,8 @@ body {
   font-size: 16px;
   line-height: 1.625;
   letter-spacing: 0.03em;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .galery-header {
   margin-top: 0px;
@@ -631,15 +644,12 @@ body {
   line-height: 2;
   letter-spacing: 0.06em;
 }
-.galery-img {
-  height: 404px;
 
-  border: 1px solid #eeeeee;
-}
 .galery-nav {
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
+  
 }
 .galery-nav,
 .galery {
@@ -652,6 +662,44 @@ body {
 .galery-nav .galery-list:not(:last-child) {
   margin-right: 8px;
 }
+/*--------------------галерея-----------------*/
+.galery-img {
+  height: 404px;
+
+  border: 1px solid #eeeeee;
+}
+.galery-link-img{
+  position: relative;
+  overflow: hidden;
+}
+.galery-hover-text{
+  position: absolute;
+  overflow: scroll;
+  top: 0%;
+  left: 0%;
+  padding: 63px 24px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  color: #FFFFFF;
+  background-color: rgba(33, 150, 243, 0.9);
+  
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.galery-link:hover .galery-hover-text,
+.galery-link:focus .galery-hover-text{
+  
+  transform: translateY(0%);
+}
+
 .galery .galery-img:not(:nth-child(3n)) {
   margin-right: 30px;
 }
@@ -659,8 +707,10 @@ body {
   margin-bottom: 30px;
 }
 
+.galery-link-box{
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .galery-link:hover .galery-link-box,
-
 .galery-link:focus .galery-link-box{
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
