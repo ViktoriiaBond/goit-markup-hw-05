@@ -76,8 +76,9 @@ body {
 
 .header {
   padding: 24px 0px;
+  overflow: hidden;
   border-bottom: 1px solid #ececec;
-
+  
   background-color: var(--header-background-color);
 }
 
@@ -129,12 +130,17 @@ body {
   fill: var(--accent-color);
 }
 .site-nav .link {
+  
   color: var(--tittle-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.02em;
   text-decoration: none;
+  position: relative;
+  padding-bottom: 32px;
+  
+  
 }
 
 .site-nav,
@@ -154,7 +160,29 @@ body {
 .site-nav .link:focus,
 .site-nav .link:active {
   color: var(--accent-color);
+  
+  
 }
+.site-nav-links{
+  
+}
+.site-nav .line{
+  
+  position: absolute;
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: var(--accent-color);
+  top: 100%;
+  left: 0%;
+  transform: translateY(0%);
+
+  
+}
+.site-nav .link:hover .line{
+  transform: translateY(-100%);
+}
+
 .link-header {
   display: flex;
   flex-direction: row-reverse;
@@ -361,11 +389,34 @@ body {
 }
 .our-work {
   padding-bottom: 94px;
+  
 }
 .our-work-lists .work-list:not(:last-child) {
   margin-right: 30px;
 }
+.work-list{
+  position: relative;
 
+}
+.work-list-text{
+  position: absolute;
+  display: block;
+  bottom: 1%;
+  width: 100%;
+  margin: 0px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1,143;
+  text-align: center;
+  letter-spacing: 0.03em;
+  
+  color: var(--hero-color);
+  background-color: rgba(47, 48, 58, 0.8)
+}
 /*-----------конец чем занимаемся----------------*/
 
 /*-------------блок команда-----------------------*/
